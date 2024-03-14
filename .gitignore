@@ -126,4 +126,4 @@ dist
 .pnp.*
 
 #IDE files
-.idea
+.idea/

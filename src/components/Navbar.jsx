@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="absolute left-0 top-0 w-full flex items-center h-24 z-40">
+      <header className="absolute left-0 top-0 w-full flex items-center h-24 z-40 mx-auto">
         <nav
           className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex gap-x-5 justify-between items-center">
           <div className="flex items-center min-w-max relative">
@@ -46,12 +46,12 @@ const Navbar = () => {
           </div>
           <div
             className={`
-              fixed inset-x-0 h-[100dvh] lg:h-max top-0 lg:opacity-100 left-0 bg-white dark:bg-gray-900 lg:!bg-transparent py-32 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 w-full lg:top-0 lg:relative  lg:flex lg:justify-between duration-300 ease-linear
-              ${openNavbar ? '' : '-translate-y-10 opacity-0 invisible lg:visible  lg:translate-y-0'}
+              fixed inset-x-0 h-[100dvh] lg:h-max top-0 lg:opacity-100 left-0 bg-white dark:bg-gray-950 lg:!bg-transparent py-32 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 w-full lg:top-0 lg:relative lg:flex lg:justify-between duration-300 ease-linear
+              ${openNavbar ? '' : '-translate-y-10 opacity-0 invisible lg:visible lg:translate-y-0'}
             `}
           >
             <ul
-              className="flex flex-col lg:flex-row gap-6 lg:items-center text-gray-700 dark:text-gray-300 lg:w-full lg:pl-10">
+              className="flex flex-col justify-center lg:flex-row gap-6 lg:items-center text-gray-700 dark:text-gray-300 lg:w-full lg:pr-24">
               {navItems.map((navItem) => (
                 <li key={navItem.id}>
                   <a href={navItem.link} className="relative py-2.5 duration-300 ease-linear hover:text-black dark:hover:text-white">

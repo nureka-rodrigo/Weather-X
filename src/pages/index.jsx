@@ -9,7 +9,7 @@ import {WeatherIconsNow} from "../data/WeatherIconsNow.jsx";
 import {WeatherIconsForecast} from "../data/WeatherIconsForecast.jsx";
 import axios from "axios";
 
-const Home = () => {
+const Index = () => {
   const [locationError, setLocationError] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
@@ -156,14 +156,30 @@ const Home = () => {
                   </h1>
                   <div className="grid gap-4 mt-8 duration-300 ease-linear">
                     <div className="flex overflow-x-auto duration-300 ease-linear">
+                      {/*<div*/}
+                      {/*  className="relative flex flex-col mt-6 text-gray-700 bg-blue-100 shadow-md bg-clip-border rounded-xl w-32 mr-4">*/}
+                      {/*  <div className="p-6">*/}
+                      {/*    <h5*/}
+                      {/*      className="block mb-2 font-sans antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">*/}
+                      {/*      Now*/}
+                      {/*    </h5>*/}
+                      {/*    <div className="flex items-center justify-center">*/}
+                      {/*      {WeatherIconsForecast[weatherData?.weather[0].main]}*/}
+                      {/*    </div>*/}
+                      {/*    <h5*/}
+                      {/*      className="block mb-2 font-sans antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">*/}
+                      {/*      {Math.round(weatherData?.main.temp)}&deg;C*/}
+                      {/*    </h5>*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
                       {forecastData && forecastData.list.slice(0, 8).map((forecast, index) => (
                         <div
                           key={index}
-                          className="relative flex flex-col mt-6 text-gray-700 bg-blue-100 shadow-md bg-clip-border rounded-xl w-28 mr-4">
+                          className="relative flex flex-col mt-6 text-gray-700 bg-blue-100 shadow-md bg-clip-border rounded-xl w-32 mr-4">
                           <div className="p-6">
                             <h5
                               className="block mb-2 font-sans antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                              {new Date(forecast.dt * 1000).toLocaleTimeString()}
+                              {new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </h5>
                             <div className="flex items-center justify-center">
                               {WeatherIconsForecast[forecast.weather[0].main]}
@@ -188,4 +204,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Index;

@@ -31,6 +31,10 @@ const Navbar = () => {
               {NavItems.map((navItem) => (
                 <li key={navItem.id}>
                   <a href={navItem.link}
+                     onClick={(e) => {
+                       e.preventDefault();
+                       document.querySelector(navItem.link).scrollIntoView({behavior: 'smooth'});
+                     }}
                      className="relative py-2.5 duration-300 ease-linear hover:text-black dark:hover:text-white">
                     {navItem.text}
                   </a>

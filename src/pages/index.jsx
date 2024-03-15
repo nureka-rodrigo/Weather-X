@@ -134,9 +134,9 @@ const Index = () => {
                   <h1
                     className="text-4xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">{weatherData?.name}</h1>
                   <p
-                    className="text-lg mt-4 text-gray-500 dark:text-gray-300 duration-300 ease-linear">{weatherData?.weather[0].main}</p>
+                    className="text-lg mt-4 text-gray-900 font-semibold dark:text-gray-300 duration-300 ease-linear">{weatherData?.weather[0].main}</p>
                   <p
-                    className="text-lg mt-4 text-gray-500 dark:text-gray-300 duration-300 ease-linear">
+                    className="text-lg mt-4 text-gray-900 font-semibold dark:text-gray-300 duration-300 ease-linear">
                     {Math.round(weatherData?.main.temp)}&deg;C
                   </p>
                 </div>

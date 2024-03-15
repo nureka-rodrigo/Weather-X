@@ -6,20 +6,22 @@ import {WiHumidity} from "react-icons/wi";
 import {FiWind} from "react-icons/fi";
 import {FaCloud} from "react-icons/fa";
 import {WeatherIcons} from "../data/WeatherIcons.jsx";
+import axios from "axios";
 
 const Home = () => {
   const [locationError, setLocationError] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
         if (latitude && longitude) {
           const apiKey = import.meta.env.VITE_WEATHER_API_KEY
-          const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`);
-          const data = await response.json();
+          const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`);
+          const data = response.data;
           setWeatherData(data);
         }
       } catch (error) {
@@ -27,7 +29,10 @@ const Home = () => {
       }
     };
 
-    fetchWeatherData().then(r => r);
+    fetchWeatherData().then(r => {
+      setIsLoading(false);
+      return r;
+    });
   }, [latitude, longitude]);
 
   useEffect(() => {
@@ -56,7 +61,16 @@ const Home = () => {
     <>
       {locationError ? (
         <div className="flex flex-col justify-center items-center min-h-screen">
-          <h1 className="text-xl font-semibold mb-2">Error: Location access not granted</h1>
+          <h1 className="text-xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">
+            Error: Location access not granted. Please enable location service as it is essential for the system to
+            work.
+          </h1>
+        </div>
+      ) : isLoading ? (
+        <div className="flex flex-col justify-center items-center min-h-screen">
+          <h1 className="text-xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">
+            Loading...
+          </h1>
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center min-h-screen">

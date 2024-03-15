@@ -66,8 +66,8 @@ const Home = () => {
     <>
       {locationError ? (
         <div className="flex flex-col justify-center items-center min-h-screen">
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">
-            Error: Location access not granted. Please enable location service as it is essential for the system to
+          <h1 className="text-xl font-bold text-gray-900 dark:text-white duration-300 ease-linear mx-5 text-center">
+            Error: Location access not granted. Please enable location service, as it is essential for the system to
             work.
           </h1>
         </div>

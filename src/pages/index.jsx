@@ -179,7 +179,10 @@ const Index = () => {
                           <div className="p-6">
                             <h5
                               className="block mb-2 font-sans antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                              {new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                              {new Date(forecast.dt * 1000).toLocaleTimeString([], {
+                                hour: '2-digit',
+                                minute: '2-digit'
+                              })}
                             </h5>
                             <div className="flex items-center justify-center">
                               {WeatherIconsForecast[forecast.weather[0].main]}
@@ -193,6 +196,15 @@ const Index = () => {
                       ))}
                     </div>
                   </div>
+                </div>
+              </section>
+
+              <section id="forecast">
+                <div
+                  className="container px-6 lg:pt-28 pb-8 mx-auto text-center flex flex-col justify-center items-center">
+                  <h1 className="text-3xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">
+                    Air Quality
+                  </h1>
                 </div>
               </section>
               <Footer className="mt-auto"/>

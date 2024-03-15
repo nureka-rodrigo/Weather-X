@@ -6,7 +6,6 @@ const Error = () => {
   return (
     <>
       <div className="flex flex-col max-h-screen min-w-fit">
-        <Navbar/>
         <section className="flex items-center justify-center h-screen">
           <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div className="mx-auto max-w-screen-sm text-center text-gray-950 dark:text-white">
@@ -29,7 +28,6 @@ const Error = () => {
             </div>
           </div>
         </section>
-        <Footer className="mt-auto"/>
       </div>
     </>
   );

@@ -95,7 +95,9 @@ const Home = () => {
                   <p
                     className="text-lg mt-4 text-gray-500 dark:text-gray-300 duration-300 ease-linear">{weatherData?.weather[0].main}</p>
                   <p
-                    className="text-lg mt-4 text-gray-500 dark:text-gray-300 duration-300 ease-linear">{weatherData?.main.temp}&deg;C</p>
+                    className="text-lg mt-4 text-gray-500 dark:text-gray-300 duration-300 ease-linear">
+                    {Math.round(weatherData?.main.temp)}&deg;C
+                  </p>
                 </div>
                 <div
                   className="max-w-7xl mx-auto font-[sans-serif] mt-0 md:mt-20 mb-12 lg:mb-0 text-gray-950 dark:text-white">

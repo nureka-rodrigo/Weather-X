@@ -30,7 +30,6 @@ const Home = () => {
     };
 
     fetchWeatherData().then(r => {
-      setIsLoading(false);
       return r;
     });
   }, [latitude, longitude]);
@@ -57,6 +56,12 @@ const Home = () => {
     getLocation();
   }, []);
 
+  useEffect(() => {
+    if (weatherData && WeatherIcons[weatherData.weather[0].main]) {
+      setIsLoading(false);
+    }
+  }, [weatherData]);
+
   return (
     <>
       {locationError ? (
@@ -67,10 +72,12 @@ const Home = () => {
           </h1>
         </div>
       ) : isLoading ? (
-        <div className="flex flex-col justify-center items-center min-h-screen">
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">
-            Loading...
-          </h1>
+        <div className="flex justify-center items-center min-h-screen">
+          <img
+            className="h-16 w-auto dark:invert animate-pulse"
+            src="/logo.svg"
+            alt="Logo"
+          />
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center min-h-screen">

@@ -224,7 +224,7 @@ const Index = () => {
                           {value}
                         </h2>
                         <p className="text-gray-700 dark:text-gray-500 duration-300 ease-linear">
-                          {key.toUpperCase()}
+                          {key.replace('_', '.').toUpperCase()}
                         </p>
                       </div>
                     ))}

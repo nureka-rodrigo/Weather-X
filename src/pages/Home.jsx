@@ -5,12 +5,14 @@ import {GiWeightScale} from "react-icons/gi";
 import {WiHumidity} from "react-icons/wi";
 import {FiWind} from "react-icons/fi";
 import {FaCloud} from "react-icons/fa";
-import {WeatherIcons} from "../data/WeatherIcons.jsx";
+import {WeatherIconsNow} from "../data/WeatherIconsNow.jsx";
+import {WeatherIconsForecast} from "../data/WeatherIconsForecast.jsx";
 import axios from "axios";
 
 const Home = () => {
   const [locationError, setLocationError] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +32,25 @@ const Home = () => {
     };
 
     fetchWeatherData().then(r => {
+      return r;
+    });
+  }, [latitude, longitude]);
+
+  useEffect(() => {
+    const fetchForecastData = async () => {
+      try {
+        if (latitude && longitude) {
+          const apiKey = import.meta.env.VITE_WEATHER_API_KEY
+          const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`);
+          const data = response.data;
+          setForecastData(data);
+        }
+      } catch (error) {
+        console.error('Error fetching weather data:', error);
+      }
+    };
+
+    fetchForecastData().then(r => {
       return r;
     });
   }, [latitude, longitude]);
@@ -57,7 +78,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    if (weatherData && WeatherIcons[weatherData.weather[0].main]) {
+    if (weatherData && WeatherIconsNow[weatherData.weather[0].main]) {
       setIsLoading(false);
     }
   }, [weatherData]);
@@ -88,7 +109,7 @@ const Home = () => {
                 <div
                   className="container px-6 pt-12 md:pt-20 mx-auto text-center flex flex-col justify-center items-center">
                   <div className="flex justify-center mt-10">
-                    {weatherData && WeatherIcons[weatherData.weather[0].main]}
+                    {weatherData && WeatherIconsNow[weatherData.weather[0].main]}
                   </div>
                   <h1
                     className="text-4xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">{weatherData?.name}</h1>
@@ -122,6 +143,38 @@ const Home = () => {
                       <FaCloud className="w-12 h-12 mb-4 inline-block bg-blue-100 p-3 rounded-xl text-gray-950"/>
                       <h3 className="text-xl font-semibold mb-2">Cloudiness</h3>
                       <p className="text-gray-500 text-sm">{weatherData?.clouds.all}%</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="forecast">
+                <div
+                  className="container px-6 lg:pt-28 mx-auto text-center flex flex-col justify-center items-center">
+                  <h1 className="text-3xl font-bold text-gray-900 dark:text-white duration-300 ease-linear">
+                    24 Hour Forecast
+                  </h1>
+                  <div className="grid gap-4 mt-8 duration-300 ease-linear">
+                    <div className="flex overflow-x-auto duration-300 ease-linear">
+                      {forecastData && forecastData.list.slice(0, 8).map((forecast, index) => (
+                        <div
+                          key={index}
+                          className="relative flex flex-col mt-6 text-gray-700 bg-blue-100 shadow-md bg-clip-border rounded-xl w-28 mr-4">
+                          <div className="p-6">
+                            <h5
+                              className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                              {new Date(forecast.dt * 1000).toLocaleTimeString()}
+                            </h5>
+                            <div className="flex items-center justify-center">
+                              {WeatherIconsForecast[forecast.weather[0].main]}
+                            </div>
+                            <h5
+                              className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                              {Math.round(forecast.main.temp)}&deg;C
+                            </h5>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>

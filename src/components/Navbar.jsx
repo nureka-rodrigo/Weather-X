@@ -34,6 +34,7 @@ const Navbar = () => {
                      onClick={(e) => {
                        e.preventDefault();
                        document.querySelector(navItem.link).scrollIntoView({behavior: 'smooth'});
+                       setOpenNavbar(false); // Close the navbar
                      }}
                      className="relative py-2.5 duration-300 ease-linear hover:text-black dark:hover:text-white">
                     {navItem.text}

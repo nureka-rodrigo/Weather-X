@@ -8,6 +8,7 @@ import {FaCloud} from "react-icons/fa";
 import {WeatherIconsNow} from "../data/WeatherIconsNow.jsx";
 import {WeatherIconsForecast} from "../data/WeatherIconsForecast.jsx";
 import axios from "axios";
+import ScrollToTopButton from "../components/ScrollToTopButton.jsx";
 
 const Index = () => {
   const [locationError, setLocationError] = useState(false);
@@ -105,6 +106,7 @@ const Index = () => {
 
   return (
     <>
+      <ScrollToTopButton/>
       {locationError ? (
         <div className="flex flex-col justify-center items-center min-h-screen">
           <h1 className="text-xl font-bold text-gray-900 dark:text-white duration-300 ease-linear mx-5 text-center">
@@ -125,7 +127,7 @@ const Index = () => {
           {
             <div className="flex flex-col justify-center items-center min-h-screen">
               <Navbar/>
-              <section>
+              <section id="home">
                 <div
                   className="container px-6 pt-12 md:pt-20 mx-auto text-center flex flex-col justify-center items-center">
                   <div className="flex justify-center mt-10">

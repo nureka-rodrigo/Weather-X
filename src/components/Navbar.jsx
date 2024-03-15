@@ -1,28 +1,6 @@
 import {useState} from 'react';
 import ThemeButton from './ThemeButton.jsx';
-
-const navItems = [
-  {
-    id: 1,
-    text: 'Home',
-    link: '/',
-  },
-  {
-    id: 2,
-    text: 'Forecast',
-    link: '/forecast',
-  },
-  {
-    id: 3,
-    text: 'Air Quality',
-    link: '/air-quality',
-  },
-  {
-    id: 4,
-    text: 'Contact',
-    link: '/contact',
-  },
-];
+import {NavItems} from '../data/NavItems.jsx';
 
 const Navbar = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
@@ -36,12 +14,10 @@ const Navbar = () => {
         <nav
           className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex gap-x-5 justify-between items-center">
           <div className="flex items-center min-w-max relative">
-            <a href="#" className="font-semibold flex items-center gap-x-2">
+            <a href="/" className="font-semibold flex items-center gap-x-2">
               <div className="flex items-center -space-x-3">
-                <span className="h-6 aspect-square bg-purple-600 dark:bg-purple-500 rounded-full flex"/>
-                <span className="h-6 aspect-square bg-pink-600 dark:bg-pink-400 blur rounded-full flex"/>
+                <img src="/logo.svg" className="h-12 rounded-full dark:invert duration-300 ease-linear" alt="brand"/>
               </div>
-              <span className="text-lg text-gray-700 dark:text-gray-300">Weather-X</span>
             </a>
           </div>
           <div
@@ -51,10 +27,11 @@ const Navbar = () => {
             `}
           >
             <ul
-              className="flex flex-col justify-center lg:flex-row gap-6 lg:items-center text-gray-700 dark:text-gray-300 lg:w-full lg:pr-24">
-              {navItems.map((navItem) => (
+              className="flex flex-col justify-center lg:flex-row gap-6 lg:items-center text-gray-700 dark:text-gray-300 lg:w-full lg:pr-36 lg:mr-5">
+              {NavItems.map((navItem) => (
                 <li key={navItem.id}>
-                  <a href={navItem.link} className="relative py-2.5 duration-300 ease-linear hover:text-black dark:hover:text-white">
+                  <a href={navItem.link}
+                     className="relative py-2.5 duration-300 ease-linear hover:text-black dark:hover:text-white">
                     {navItem.text}
                   </a>
                 </li>

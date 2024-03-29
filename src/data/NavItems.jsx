@@ -2,7 +2,7 @@ export const NavItems = [
   {
     id: 1,
     text: 'Home',
-    link: '#home',
+    link: '#now',
   },
   {
     id: 2,

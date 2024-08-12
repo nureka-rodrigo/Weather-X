@@ -1,21 +1,56 @@
-import {MdSunny, MdThunderstorm} from "react-icons/md";
-import {BsCloudDrizzleFill, BsCloudRainFill, BsCloudsFill, BsCloudSnowFill} from "react-icons/bs";
-import {RiMistFill} from "react-icons/ri";
+import { MdSunny, MdThunderstorm } from "react-icons/md";
+import {
+  BsCloudDrizzleFill,
+  BsCloudRainFill,
+  BsCloudsFill,
+  BsCloudSnowFill,
+} from "react-icons/bs";
+import { RiMistFill } from "react-icons/ri";
 
 export const WeatherIconsNow = {
-  Thunderstorm: <MdThunderstorm className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Drizzle: <BsCloudDrizzleFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Rain: <BsCloudRainFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Snow: <BsCloudSnowFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Mist: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Smoke: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Haze: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Dust: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Fog: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Sand: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Ash: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Squall: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Tornado: <RiMistFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Clear: <MdSunny className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
-  Clouds: <BsCloudsFill className="text-gray-900 dark:text-gray-200 h-96 rounded-xl w-4/5 duration-300 ease-linear"/>,
+  Thunderstorm: (
+    <MdThunderstorm className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Drizzle: (
+    <BsCloudDrizzleFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Rain: (
+    <BsCloudRainFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Snow: (
+    <BsCloudSnowFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Mist: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Smoke: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Haze: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Dust: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Fog: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Sand: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Ash: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Squall: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Tornado: (
+    <RiMistFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Clear: (
+    <MdSunny className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
+  Clouds: (
+    <BsCloudsFill className="text-neautral-950 dark:text-gray-100 h-96 rounded-xl w-4/5" />
+  ),
 };
